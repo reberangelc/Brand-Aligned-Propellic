@@ -1,6 +1,6 @@
 Create a fully branded Propellic presentation deck about: $ARGUMENTS
 
-Write a Python script using python-pptx and run it to generate an actual .pptx file, then immediately upload it to Google Drive as a Google Slides presentation. Use the shebang `#!/Users/javierhernandez/hotel-faq/venv/bin/python3` so the script runs with the venv that has google-api-python-client installed. Save the .pptx to the current working directory with a descriptive kebab-case filename.
+Write a Python script using python-pptx and run it to generate an actual .pptx file, then immediately upload it to Google Drive as a Google Slides presentation. Use the shebang `#!/usr/bin/env python3` at the top. Save the .pptx to the current working directory with a descriptive kebab-case filename.
 
 The logo files are in the current working directory:
 - `propellic-logo.png` — white flame + white wordmark, use on Midnight backgrounds
@@ -44,7 +44,7 @@ The logo files are in the current working directory:
 #!/usr/bin/env python3
 import os, sys
 
-VENV_PYTHON = '/Users/javierhernandez/hotel-faq/venv/bin/python3'
+VENV_PYTHON = os.path.expanduser('~/.propellic/venv/bin/python3')
 if sys.executable != VENV_PYTHON and os.path.exists(VENV_PYTHON):
     os.execv(VENV_PYTHON, [VENV_PYTHON] + sys.argv)
 
@@ -203,7 +203,7 @@ Design the right number and mix of slides for the topic. After building all slid
 ```python
 PPTX_MIME    = 'application/vnd.openxmlformats-officedocument.presentationml.presentation'
 GSLIDES_MIME = 'application/vnd.google-apps.presentation'
-TOKEN_PATH   = os.path.expanduser('~/hotel-faq/token.json')
+TOKEN_PATH   = os.path.expanduser('~/.propellic/token.json')
 
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request

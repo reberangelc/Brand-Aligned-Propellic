@@ -1,6 +1,6 @@
 Create a fully branded Propellic spreadsheet for: $ARGUMENTS
 
-Write a Python script using openpyxl and run it to generate an actual .xlsx file, then immediately upload it to Google Drive as a Google Sheet. Use the shebang `#!/Users/javierhernandez/hotel-faq/venv/bin/python3` so the script runs with the venv that has google-api-python-client installed. Save the .xlsx to the current working directory with a descriptive kebab-case filename.
+Write a Python script using openpyxl and run it to generate an actual .xlsx file, then immediately upload it to Google Drive as a Google Sheet. Use the shebang `#!/usr/bin/env python3` at the top. Save the .xlsx to the current working directory with a descriptive kebab-case filename.
 
 ---
 
@@ -108,8 +108,8 @@ import os, sys
 
 XLSX_MIME    = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
 GSHEET_MIME  = 'application/vnd.google-apps.spreadsheet'
-TOKEN_PATH   = os.path.expanduser('~/hotel-faq/token.json')
-VENV_PYTHON  = '/Users/javierhernandez/hotel-faq/venv/bin/python3'
+TOKEN_PATH   = os.path.expanduser('~/.propellic/token.json')
+VENV_PYTHON  = os.path.expanduser('~/.propellic/venv/bin/python3')
 
 if sys.executable != VENV_PYTHON and os.path.exists(VENV_PYTHON):
     os.execv(VENV_PYTHON, [VENV_PYTHON] + sys.argv)

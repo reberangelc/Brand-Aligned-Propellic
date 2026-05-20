@@ -1,6 +1,6 @@
 Create a fully branded Propellic document about: $ARGUMENTS
 
-Write a Python script using python-docx and run it to generate an actual .docx file, then immediately upload it to Google Drive as a Google Doc. Use the shebang `#!/Users/javierhernandez/hotel-faq/venv/bin/python3` so the script runs with the venv that has google-api-python-client installed. Save the .docx to the current working directory with a descriptive kebab-case filename.
+Write a Python script using python-docx and run it to generate an actual .docx file, then immediately upload it to Google Drive as a Google Doc. Use the shebang `#!/usr/bin/env python3` at the top. Save the .docx to the current working directory with a descriptive kebab-case filename.
 
 The logo file is at: propellic-logo-dark.png (in the current working directory — pink flame + Midnight wordmark, transparent background, works on white).
 
@@ -330,8 +330,8 @@ import subprocess, sys
 
 DOCX_MIME = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
 GDOC_MIME = 'application/vnd.google-apps.document'
-TOKEN_PATH = os.path.expanduser('~/hotel-faq/token.json')
-VENV_PYTHON = '/Users/javierhernandez/hotel-faq/venv/bin/python3'
+TOKEN_PATH  = os.path.expanduser('~/.propellic/token.json')
+VENV_PYTHON = os.path.expanduser('~/.propellic/venv/bin/python3')
 
 # If running outside the venv, re-exec with it
 if sys.executable != VENV_PYTHON and os.path.exists(VENV_PYTHON):
